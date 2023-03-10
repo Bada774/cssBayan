@@ -3,6 +3,10 @@
     user-select: none;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -100,27 +104,37 @@ input:checked + div .meme_header {
 
 input {
     display: none;
+    margin: 0;
 }
 
 .meme_item:hover .meme_image,
 input:checked + div .meme_image {
     display: block;
     transform: scale(1);
-    width: 50%;
+    width: 25%;
     opacity: 1;
 }
 
 input:not(:checked) + div .meme_header .fa-xmark {
-    display: none;
+    opacity: 0;
 }
 
 input:checked + div .meme_header .fa-plus, 
 .meme_item:hover input + div .meme_header .fa-plus {
-    display: none;
+    opacity: 0;
+}
+
+.fa-plus,
+.fa-xmark {
+    transition: opacity 0.5s ease-in-out;
+}
+
+div .meme_header .fa-plus {
+    margin-right: -60%;
 }
 
 .meme_item:hover input + div .meme_header .fa-xmark {
-    display: flex;
+    opacity: 1;
 }
 
 .container:hover .icon_item {
